@@ -1,6 +1,5 @@
 package com.nurkiewicz.java8;
 
-import com.google.common.primitives.Ints;
 import org.junit.Test;
 
 import java.awt.event.ActionListener;
@@ -50,7 +49,7 @@ public class J04_FunctionalInterfacesTest {
 
 	@Test
 	public void testComparatorLambda() {
-		final Comparator<String> strLenComparator = (x, y) -> Ints.compare(x.length(), y.length());
+		final Comparator<String> strLenComparator = Comparator.comparing(String::length);
 
 		assertThat(strLenComparator.compare("abc", "def")).isZero();
 		assertThat(strLenComparator.compare("abc", "defg")).isLessThan(0);
