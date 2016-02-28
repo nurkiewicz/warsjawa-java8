@@ -15,7 +15,7 @@ import java.io.StringReader;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static junitparams.JUnitParamsRunner.$;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * - Improve encrypter to use default methods to avoid code duplication.

@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 import static com.jayway.awaitility.Awaitility.await;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Implement {@link BigDecimalAccumulator} so that it satisfies tests below.

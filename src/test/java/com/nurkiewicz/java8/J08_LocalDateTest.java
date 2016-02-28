@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 import static java.time.Month.DECEMBER;
 import static java.time.Month.MAY;
 import static java.time.Month.SEPTEMBER;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Ignore
 public class J08_LocalDateTest {

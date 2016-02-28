@@ -18,7 +18,7 @@ import static com.nurkiewicz.java8.people.Sex.FEMALE;
 import static com.nurkiewicz.java8.people.Sex.MALE;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * - What is Stream<T>

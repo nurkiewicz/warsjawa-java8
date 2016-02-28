@@ -11,8 +11,8 @@ import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 
-import static org.fest.assertions.api.Assertions.assertThat;
-import static org.fest.assertions.data.Offset.offset;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.data.Offset.offset;
 
 /**
  * Explore different Collectors.* implementations

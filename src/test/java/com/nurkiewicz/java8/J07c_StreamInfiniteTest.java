@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-import static org.fest.assertions.api.Assertions.assertThat;
-import static org.fest.assertions.api.Assertions.offset;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 /**
  * @see PrimeUtil

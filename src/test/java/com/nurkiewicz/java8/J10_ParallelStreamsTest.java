@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * - run time difference

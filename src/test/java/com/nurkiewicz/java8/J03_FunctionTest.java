@@ -11,8 +11,8 @@ import java.util.function.LongConsumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-import static org.fest.assertions.api.Assertions.assertThat;
-import static org.fest.assertions.data.Offset.offset;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.data.Offset.offset;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 

@@ -9,7 +9,7 @@ import java.time.Month;
 import java.util.Optional;
 
 import static com.nurkiewicz.java8.people.Sex.MALE;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Transform old-fashioned code using nulls with Optional

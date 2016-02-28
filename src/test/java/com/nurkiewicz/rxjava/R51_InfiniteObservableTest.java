@@ -11,7 +11,7 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
 import static com.nurkiewicz.rxjava.ObservableOps.withIndex;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * <p>Implement infinite Observable similar to {@link Stream#iterate(Object, UnaryOperator)}
