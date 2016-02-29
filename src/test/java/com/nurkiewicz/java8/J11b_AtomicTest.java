@@ -5,10 +5,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.jayway.awaitility.Awaitility.await;
-import static com.jayway.awaitility.Awaitility.to;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
-import static org.hamcrest.Matchers.closeTo;
 
 /**
  * *Adder
@@ -43,8 +41,8 @@ public class J11b_AtomicTest {
 		range.save(someValue);
 
 		//then
-		assertThat(range.getMin()).isEqualTo(someValue, offset(0.1));
-		assertThat(range.getMax()).isEqualTo(someValue, offset(0.1));
+		assertThat(range.getMin()).isCloseTo(someValue, offset(0.01));
+		assertThat(range.getMax()).isCloseTo(someValue, offset(0.01));
 	}
 
 	@Test
@@ -73,8 +71,8 @@ public class J11b_AtomicTest {
 		MultiRunner.runMultiThreaded(1000, () -> range.save(randomDigit()));
 
 		//then
-		await().untilCall(to(range).getMin(), closeTo(0, 0.01));
-		await().untilCall(to(range).getMax(), closeTo(9, 0.01));
+		await().until(() -> assertThat(range.getMin()).isCloseTo(0, offset(0.01)));
+		await().until(() -> assertThat(range.getMax()).isCloseTo(9, offset(0.01)));
 	}
 
 	private int randomDigit() {

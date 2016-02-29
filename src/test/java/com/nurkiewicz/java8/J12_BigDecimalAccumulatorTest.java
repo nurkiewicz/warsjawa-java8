@@ -102,7 +102,7 @@ public class J12_BigDecimalAccumulatorTest {
 		MultiRunner.runMultiThreaded(count, () -> accumulator.accumulate(BigDecimal.ONE));
 
 		//then
-		await().until(() -> accumulator.get().intValue() == count);
+		await().until(() -> assertThat(accumulator.get().intValue()).isEqualTo(count));
 	}
 
 }

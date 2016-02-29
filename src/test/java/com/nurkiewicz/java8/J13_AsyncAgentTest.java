@@ -15,12 +15,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 import static com.jayway.awaitility.Awaitility.await;
-import static com.jayway.awaitility.Awaitility.to;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.not;
 
 @Ignore
 public class J13_AsyncAgentTest {
@@ -53,7 +50,7 @@ public class J13_AsyncAgentTest {
 		agent.send(x -> x.add(BigInteger.TEN));
 
 		//then
-		await().until(() -> agent.get().equals(BigInteger.valueOf(1 + 1 + 10)));
+		await().until(() -> assertThat(agent.get()).isEqualTo(BigInteger.valueOf(1 + 1 + 10)));
 	}
 
 	@Test
@@ -69,7 +66,7 @@ public class J13_AsyncAgentTest {
 		agent.send(s -> "D" + s);
 
 		//then
-		await().untilCall(to(agent).get(), is("Dabc"));
+		await().until(() -> assertThat(agent.get()).isEqualTo("Dabc"));
 	}
 
 	@Test
@@ -82,7 +79,7 @@ public class J13_AsyncAgentTest {
 		agent.send(x -> Thread.currentThread().getId());
 
 		//then
-		await().untilCall(to(agent).get(), is(not(mainThreadId)));
+		await().until(() -> assertThat(agent.get()).isNotEqualTo(mainThreadId));
 	}
 
 	@Test
@@ -132,7 +129,7 @@ public class J13_AsyncAgentTest {
 						}));
 
 		//then
-		await().untilCall(to(agent).get(), hasSize(total));
+		await().until(() -> assertThat(agent.get()).hasSize(total));
 	}
 
 }

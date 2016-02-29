@@ -7,10 +7,8 @@ import org.junit.Test;
 import java.util.stream.IntStream;
 
 import static com.jayway.awaitility.Awaitility.await;
-import static com.jayway.awaitility.Awaitility.to;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
-import static org.hamcrest.Matchers.closeTo;
 
 /**
  * *Adder
@@ -30,7 +28,7 @@ public class J11c_AtomicTest {
 		final double result = calculator.doubleValue();
 
 		//then
-		assertThat(result).isEqualTo(0.0, offset(0.1));
+		assertThat(result).isCloseTo(0.0, offset(0.1));
 	}
 
 	@Test
@@ -65,8 +63,8 @@ public class J11c_AtomicTest {
 		calculator.div(3);      //2
 
 		//then
-		assertThat(tmp).isEqualTo(5.0, offset(0.1));
-		assertThat(calculator.doubleValue()).isEqualTo(2.0, offset(0.1));
+		assertThat(tmp).isCloseTo(5.0, offset(0.1));
+		assertThat(calculator.doubleValue()).isCloseTo(2.0, offset(0.1));
 	}
 
 	@Test
@@ -80,7 +78,7 @@ public class J11c_AtomicTest {
 
 		//then
 		final int expectedSum = IntStream.range(1, 5000).sum();
-		await().untilCall(to(calculator).doubleValue(), closeTo(expectedSum, 0.01));
+		await().until(() -> assertThat(calculator.doubleValue()).isCloseTo(expectedSum, offset(0.01)));
 	}
 
 }
