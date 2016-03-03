@@ -67,7 +67,7 @@ public class J08_LocalDateTest {
 		assertThat(nextHoliday).isEqualTo(LocalDate.of(2014, MAY, 17));
 	}
 
-	public TemporalAdjuster nextHoliday() {
+	private TemporalAdjuster nextHoliday() {
 		throw new UnsupportedOperationException("nextHoliday()");
 	}
 

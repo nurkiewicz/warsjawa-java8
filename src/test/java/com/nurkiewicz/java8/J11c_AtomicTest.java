@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.offset;
 public class J11c_AtomicTest {
 
 	@Test
-	public void shouldReturnZeroWhenNoPreviousInteractionsWithTheCalulator() throws Exception {
+	public void shouldReturnZeroWhenNoPreviousInteractionsWithTheCalculator() throws Exception {
 		//given
 		final SafeCalculator calculator = new SafeCalculator();
 

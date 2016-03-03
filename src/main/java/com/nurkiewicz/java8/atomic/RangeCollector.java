@@ -1,5 +1,8 @@
 package com.nurkiewicz.java8.atomic;
 
+/**
+ * Keeps minimal range including all saved numbers.
+ */
 public class RangeCollector {
 
 	public void save(double x) {

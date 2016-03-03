@@ -84,7 +84,7 @@ public class J08_FilesTest {
 				.findAny();
 
 		//then
-		assertThat(found.isPresent()).isTrue();
+		assertThat(found).isPresent();
 	}
 
 	private static Stream<Path> filesInDir(Path dir) {

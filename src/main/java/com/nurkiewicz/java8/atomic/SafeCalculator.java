@@ -7,11 +7,11 @@ public class SafeCalculator extends Number {
 	 * @return Previous value
 	 */
 	public int set(int x) {
-		throw new UnsupportedOperationException("reset()");
+		throw new UnsupportedOperationException("set()");
 	}
 
 	public int mul(int x) {
-		throw new UnsupportedOperationException("inc()");
+		throw new UnsupportedOperationException("mul()");
 	}
 
 	public int div(int x) {
