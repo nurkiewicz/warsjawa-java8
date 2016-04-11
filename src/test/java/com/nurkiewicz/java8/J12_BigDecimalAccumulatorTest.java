@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 import static com.jayway.awaitility.Awaitility.await;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Implement {@link BigDecimalAccumulator} so that it satisfies tests below.
@@ -102,7 +102,7 @@ public class J12_BigDecimalAccumulatorTest {
 		MultiRunner.runMultiThreaded(count, () -> accumulator.accumulate(BigDecimal.ONE));
 
 		//then
-		await().until(() -> accumulator.get().intValue() == count);
+		await().until(() -> assertThat(accumulator.get().intValue()).isEqualTo(count));
 	}
 
 }

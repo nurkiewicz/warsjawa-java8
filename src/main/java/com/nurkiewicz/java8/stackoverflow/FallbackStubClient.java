@@ -52,7 +52,7 @@ public class FallbackStubClient implements StackOverflowClient {
 
 	private Document loadStubHtmlFromDisk(String tag) {
 		try {
-			final String html = IOUtils.toString(getClass().getResource("/" + tag + "-question.html"));
+			final String html = IOUtils.toString(getClass().getResource("/" + tag + "-questions.html"));
 			return Jsoup.parse(html);
 		} catch (IOException e1) {
 			throw Throwables.propagate(e1);

@@ -11,7 +11,7 @@ import rx.Observable;
 
 import java.util.List;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @Ignore
 public class R46_ComposingTest {

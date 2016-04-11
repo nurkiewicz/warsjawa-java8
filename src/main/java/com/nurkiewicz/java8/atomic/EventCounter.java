@@ -2,7 +2,7 @@ package com.nurkiewicz.java8.atomic;
 
 public class EventCounter extends Number {
 
-	public long incBy(long x) {
+	public void incBy(long x) {
 		throw new UnsupportedOperationException("incBy()");
 	}
 

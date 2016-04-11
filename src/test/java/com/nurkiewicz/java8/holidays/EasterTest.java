@@ -11,7 +11,7 @@ import java.time.Year;
 import static java.time.Month.APRIL;
 import static java.time.Month.MARCH;
 import static junitparams.JUnitParamsRunner.$;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(JUnitParamsRunner.class)
 public class EasterTest {

@@ -12,7 +12,7 @@ import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toSet;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Implement custom Collector to ImmutableSet from Guava

@@ -5,9 +5,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import static com.jayway.awaitility.Awaitility.await;
-import static com.jayway.awaitility.Awaitility.to;
-import static org.fest.assertions.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * *Adder
@@ -57,7 +55,7 @@ public class J11_AtomicTest {
 		MultiRunner.runMultiThreaded(1000, () -> counter.incBy(1));
 
 		//then
-		await().untilCall(to(counter).longValue(), is(1000L));
+		await().until(() -> assertThat(counter.longValue()).isEqualTo(1000L));
 	}
 
 }

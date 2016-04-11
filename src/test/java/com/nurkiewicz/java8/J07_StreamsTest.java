@@ -18,7 +18,7 @@ import static com.nurkiewicz.java8.people.Sex.FEMALE;
 import static com.nurkiewicz.java8.people.Sex.MALE;
 import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * - What is Stream<T>
@@ -28,7 +28,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 @Ignore
 public class J07_StreamsTest {
 
-	public static final List<Person> PEOPLE = Arrays.asList(
+	private static final List<Person> PEOPLE = Arrays.asList(
 			new Person("Jane", FEMALE, 62, 169, LocalDate.of(1986, Month.DECEMBER, 21), new Phone(10, 555100200)),
 			new Person("Bob", MALE, 71, 183, LocalDate.of(1982, Month.FEBRUARY, 5), new Phone(10, 555100201)),
 			new Person("Steve", MALE, 85, 191, LocalDate.of(1980, Month.MAY, 4), new Phone(11, 555100200), new Phone(11, 555100201), new Phone(11, 555100202)),
@@ -76,12 +76,15 @@ public class J07_StreamsTest {
 		assertThat(allNotSlim).isFalse();
 	}
 
+	/**
+	 * Hint: use comparing()
+	 */
 	@Test
 	public void findTallestPerson() {
 		final Optional<Person> max = Optional.empty();
 
-		assertThat(max.isPresent()).isTrue();
-		assertThat(max.get()).isEqualTo(PEOPLE.get(2));
+		assertThat(max).isPresent();
+		assertThat(max).hasValue(PEOPLE.get(2));
 	}
 
 	@Test
@@ -111,9 +114,12 @@ public class J07_StreamsTest {
 		assertThat(totalWeight).isEqualTo(333);
 	}
 
+	/**
+	 * Hint: PEOPLE.stream()...flatMap()...distinct()
+	 */
 	@Test
 	public void findUniqueCountryCodes() {
-		final List<Integer> distinctCountryCodes = emptyList(); // PEOPLE.stream()...flatMap()...distinct()
+		final List<Integer> distinctCountryCodes = emptyList();
 
 		assertThat(distinctCountryCodes).containsExactly(10, 11, 12);
 	}
@@ -123,10 +129,13 @@ public class J07_StreamsTest {
 	 */
 	@Test
 	public void forEachYoungPerson() {
+		//given
 		List<String> names = new ArrayList<>();
 
+		//when
 		// PEOPLE.stream()...forEach()
 
+		//then
 		assertThat(names).containsExactly("Jane", "Eve");
 	}
 

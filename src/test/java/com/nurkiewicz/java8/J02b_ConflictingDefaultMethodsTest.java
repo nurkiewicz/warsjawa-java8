@@ -7,7 +7,7 @@ import com.nurkiewicz.java8.defmethods.RuleEngine;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Conflicting default methods

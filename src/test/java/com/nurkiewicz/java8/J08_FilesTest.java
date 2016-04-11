@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * - BufferedReader.lines()
@@ -84,7 +84,7 @@ public class J08_FilesTest {
 				.findAny();
 
 		//then
-		assertThat(found.isPresent()).isTrue();
+		assertThat(found).isPresent();
 	}
 
 	private static Stream<Path> filesInDir(Path dir) {

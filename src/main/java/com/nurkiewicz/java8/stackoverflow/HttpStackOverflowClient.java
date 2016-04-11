@@ -18,6 +18,7 @@ public class HttpStackOverflowClient implements StackOverflowClient {
 		try {
 			return Jsoup.
 					connect("http://stackoverflow.com/questions/tagged/" + tag).
+					userAgent("Java 8 workshop test client").
 					get();
 		} catch (IOException e) {
 			throw Throwables.propagate(e);

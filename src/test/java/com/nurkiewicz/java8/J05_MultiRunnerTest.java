@@ -10,9 +10,7 @@ import java.util.concurrent.atomic.LongAdder;
 import java.util.stream.IntStream;
 
 import static com.jayway.awaitility.Awaitility.await;
-import static com.jayway.awaitility.Awaitility.to;
-import static org.fest.assertions.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Implement simple utility methods for running blocks of code in multiple threads
@@ -34,7 +32,7 @@ public class J05_MultiRunnerTest {
 		);
 
 		//then
-		await().until(() -> threads.size() == MultiRunner.THREAD_COUNT);
+		await().until(() -> assertThat(threads).hasSize(MultiRunner.THREAD_COUNT));
 		assertThat(threads).doesNotContainKey(Thread.currentThread().getId());
 	}
 
@@ -51,7 +49,7 @@ public class J05_MultiRunnerTest {
 		));
 
 		//then
-		await().untilCall(to(counter).sum(), is(1L + 2L + 3L));
+		await().until(() -> assertThat(counter.sum()).isEqualTo(1L + 2L + 3L));
 	}
 
 	@Test
@@ -63,7 +61,7 @@ public class J05_MultiRunnerTest {
 		MultiRunner.runMultiThreaded(3, () -> counter.add(7));
 
 		//then
-		await().untilCall(to(counter).sum(), is(7L + 7L + 7L));
+		await().until(() -> assertThat(counter.sum()).isEqualTo(7L + 7L + 7L));
 	}
 
 }
